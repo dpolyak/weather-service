@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.swp
+
+# Virtual Environment
+.venv/
+env/
+*.env
+
+# Logs and databases
+*.log
+*.db
+weather_log.json
+
+# IDEs
+.vscode/
+.idea/
+
+# Email snapshots
+emails/
+
+# Temporary scripts (ignore only these specific files)
+_email_notifier.py
+_handler.py
+_local_smtp_server.py
+_test_example.py
