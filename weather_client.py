@@ -2,7 +2,7 @@
 
 import requests
 import json
-from settings import get_current_utc_timestamp
+from settings import get_current_utc_timestamp, CityCoordinate
 from dataclasses import dataclass
 from typing import Optional
 import logging
@@ -28,20 +28,6 @@ class WeatherSnapshot:
     fetched_at: str
     data: WeatherData
     source: str = "open-meteo"
-
-
-@dataclass(frozen=True)
-class CityCoordinate:
-    """Represents the geographic location of a tracked city."""
-    name: str
-    latitude: float
-    longitude: float
-
-CITIES_COORDINATES = [
-    CityCoordinate("New York", 40.7128, -74.0060),
-    CityCoordinate("Toronto", 43.6532, -79.3832),
-    CityCoordinate("Tel Aviv", 32.0853, 34.7818),
-]
 
 
 # --- API Configuration ---
@@ -125,6 +111,7 @@ def fetch_weather(city: CityCoordinate) -> WeatherData:
     
 
 if __name__ == "__main__":
+    from settings import CITIES_COORDINATES
     logger = logging.getLogger(__name__)
     logging.basicConfig(level=logging.WARNING)
 

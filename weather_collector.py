@@ -1,5 +1,5 @@
-from weather_client import fetch_weather, WeatherSnapshot, CITIES_COORDINATES
-from settings import get_current_utc_timestamp
+from weather_client import fetch_weather, WeatherSnapshot
+from settings import get_current_utc_timestamp, CITIES_COORDINATES
 from storage_service import persist_weather
 import logging
 
