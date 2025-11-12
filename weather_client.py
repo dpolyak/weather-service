@@ -115,19 +115,20 @@ if __name__ == "__main__":
     logger = logging.getLogger(__name__)
     logging.basicConfig(level=logging.WARNING)
 
-    for city in CITIES_COORDINATES:
-        
-        logger.info(f"Fetching weather for {city.name}")
-        weather_data = fetch_weather(city)
-        current_time = get_current_utc_timestamp()
-        logger.info(f"Weather data for {city.name}: {weather_data}")
-    
-        weather_snapshot = WeatherSnapshot(
-            city_name = city.name,
-            latitude = city.latitude,
-            longitude = city.longitude,
-            fetched_at = current_time,
-            data = weather_data
-        )
+    city = CityCoordinate("Toronto", 43.6532, -79.3832)
 
-        print(weather_snapshot)
+    logger.info(f"Fetching weather for {city.name}")
+    weather_data = fetch_weather(city)
+    current_time = get_current_utc_timestamp()
+    logger.info(f"Weather data for {city.name}: {weather_data}")
+
+    weather_snapshot = WeatherSnapshot(
+        city_name = city.name,
+        latitude = city.latitude,
+        longitude = city.longitude,
+        fetched_at = current_time,
+        data = weather_data
+    )
+
+    print(weather_snapshot)
+    
